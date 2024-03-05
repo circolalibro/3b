@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CircolaLibro - Biblioteca Digitale</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="logocircola.png" alt="Logo di CircolaLibro" id="logo">
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#prestiti">Prestiti</a></li>
+        <li><a href="#recensioni">Recensioni</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h1>Progetto Biblioteca Digitale "CircolaLibro"</h1>
+    <p>Il Progetto "CircolaLibro", ideato da Paola Piccoli, Professoressa d'Italiano, si propone ...</p>
+    <!-- Continuare con il resto del contenuto della Home... -->
+  </section>
+
+    <section id="prestiti">
+      <h2>Prestiti</h2>
+      <!-- Lista a tendina per i libri disponibili per il prestito -->
+      <label for="libro">Scegli un libro per il prestito:</label>
+      <select id="libro" name="libro" onchange="mostraDettagliLibro(this.value)">
+        <option value="">Seleziona un libro...</option>
+        <!-- Le opzioni saranno generate dinamicamente -->
+      </select>
+      
+      <!-- Dettagli del libro selezionato -->
+      <div id="dettagli-libro">
+        <!-- I dettagli del libro verranno visualizzati qui dopo la selezione -->
+      </div>
+    
+      <!-- Form di richiesta prestito -->
+      <form id="form-prestito" onsubmit="inviaRichiestaPrestito(event)" style="display:none;">
+        <h3>Richiesta di Prestito</h3>
+        <input type="hidden" id="nome-libro-selezionato" name="libro" />
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <input type="submit" value="Invia Richiesta">
+      </form>
+    </section>
+    
+    <section id="recensioni">
+      <h2>Recensioni</h2>
+      <p>Per inviare la tua recensione, clicca sul seguente link e invia la tua recensione a paola.piccoli@itsos-mariecurie.it</p>
+      
+      <a href="mailto:paola.piccoli@itsos-mariecurie.it?subject=Recensione Libro&body=Titolo del libro: %0D%0A%0D%0AAutore del libro: %0D%0A%0D%0ATesto della recensione: %0D%0A%0D%0AIl tuo nome:">
+        Invia la tua recensione via e-mail
+      </a>
+
+      <div class="reviews-display">
+        <h3>Recensioni Recenti</h3>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <img src="https://m.media-amazon.com/images/I/51nJXnY+yqL._SY445_SX342_.jpg" alt="Copertina di L'Aleph" class="book-cover">
+            <div class="review-details">
+              <h4>L'Aleph</h4>
+              <p class="review-author">di Jorge Luis Borges</p>
+              <p class="review-content">"Un viaggio metafisico attraverso il tempo e lo spazio. Borges apre le porte dell'infinito con la sua prosa densa e suggestiva." - Mario Draghi</p>
+              <!-- Star Rating -->
+              <div class="star-rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9734;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+
+
+
+
+
+    </section>
+    
+  
+  
+
+  <!-- Aggiungere altre sezioni se necessario... -->
+
+  <footer>
+    <p>&copy; 2024 CircolaLibro - Tutti i diritti riservati.</p>
+  </footer>
+
+
+  <script>
+    function richiestaPrestito(nomeLibro) {
+      document.getElementById('libro').value = nomeLibro;
+      document.getElementById('form-prestito').style.display = 'block';
+    }
+
+    function inviaRichiestaPrestito(event) {
+      event.preventDefault();
+      // Qui andrebbe il codice per inviare la richiesta al server
+      alert('Richiesta inviata! Riceverai una conferma via email.');
+    }
+
+
+
+    
+  </script>
+<script src="script.js"></script>
+
+
+</body>
+</html>
